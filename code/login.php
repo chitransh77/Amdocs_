@@ -1,0 +1,205 @@
+<?php
+  session_start();
+include 'conn.php';
+if(isset($_POST['submit']))
+{
+  
+   
+   
+    
+$name=$_POST['name'];
+$password=$_POST['password'];
+     $_SESSION['name']=$name;
+$p= mysqli_query($conn,"select name,password from user where name='$name' and password='$password'");
+    $p=mysqli_fetch_assoc($p);
+if($p['name']==$name and $p['password']==$password)
+{
+     header("location:mainpage.php");
+   
+}
+    else
+    {
+         echo "wrong details ";
+  header("location:login.php"); 
+        
+     
+}
+    
+}
+else 
+    {
+
+    header("location:login.php");
+    }
+
+?>
+
+<!DOCTYPE html>
+<html>
+<head>
+<title>Page Title</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-BmbxuPwQa2lc/FVzBcNJ7UAyJxM6wuqIj61tLrc4wSX0szH/Ev+nYRRuWlolflfl" crossorigin="anonymous">
+    <style>
+        footer {
+  text-align: center;
+  padding: 3px;
+  background-color: DarkSalmon;
+  color: white;
+}
+        
+        body{
+
+        background-image: url("doodles/health(190).jpg");
+            height:100%;
+            width:100%;
+            background-size: 100%
+            
+        }
+    namxe
+        {
+            width:100;
+            text-align: center;
+
+        }
+        .form-container
+        {
+            background-color: #a3a6e3;
+            border-radius: 10px;
+            position :absolute;
+            padding :30px;
+            top:15vh;
+            margin-top:90px;
+            
+            
+            
+
+        }
+        .jumbotron.jumbotron
+        {
+            background-color: #6f42c2;
+            height: 100px;
+           
+        }
+       
+        .nav-link
+        {
+            color:white;
+        }
+        .nav-link:hover{
+            color:#1c1b1b;
+        }.nav
+        {
+            padding:25px;
+            
+            
+            
+        }
+        .cat
+        {
+            display:float;
+            float:left;
+            height:75px;
+            width:40;
+            position:relative;
+            left:20px;
+            top:4px;
+            border-radius: 80px;
+            margin-right: 20px;
+            
+            
+        }
+        #corona
+        {
+            display:grid;
+            grid-template-columns: 70% 30%;
+            
+            
+        }
+        .second
+        {
+            display:grid;
+            grid-template-columns: 70% 30%;
+            margin-top:;
+            
+            
+        }
+        .third
+        {
+            display:grid;
+            grid-template-columns: 33% 33% 33%;
+            grid-template-rows: repeat(2,1f);
+            grid-row-gap: 25px;
+            align-items: flex-start;
+            
+        }
+ .ml-1 {
+  margin-left: ($spacer * 5) ;
+}   
+    
+    </style>
+</head>
+<body>
+
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+<div style="position:sticky">
+    <div class="jumbotron jumbotron-fluid">
+    <img class="cat" class="img-responsive" src="cat.jpg">
+  <div class="container-fluid">
+    <nav class="nav  ">
+  <a class="nav-link active nav-fill" href="test.php">Home</a>
+  <a class="nav-link" href="#">New User</a>
+  <a class="nav-link" href="login.php">Login</a>
+  <a class="nav-link " href="Admin.php">Admin</a>
+       <li class="nav-item dropdown">
+    <a class="nav-link dropdown-toggle" data-bs-toggle="dropdown" href="#" role="button" aria-expanded="false">More</a>
+    <ul class="dropdown-menu">
+      <li><a class="dropdown-item" href="#">Live Corona</a></li>
+      <li><a class="dropdown-item" href="#">Query</a></li>
+      <li><a class="dropdown-item" href="#">About</a></li>
+      
+    </ul>
+</nav></div ></div ></div >
+
+
+    <section class="container">
+    <section class="row justify-content-center">
+        <section class="col-12 col-md-3  col-sm-6" > 
+       
+  <form class="form-container" method="Post" action="login.php">
+  <div class="mb-3">
+    <label for="formGroupExampleInput" class="form-label">Name</label>
+    <input type="text" name="name"class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter Name">
+    <div id="emailHelp" class="form-text">We'll never share your details with anyone else.</div>
+  </div>
+  <div class="mb-3">
+    <label for="exampleInputPassword1" class="form-label">Password</label>
+    <input type="password"  name="password"class="form-control" id="exampleInputPassword1">
+  </div>
+  <div class="mb-3 form-check">
+    <input type="checkbox" class="form-check-input" id="exampleCheck1">
+    <label class="form-check-label" for="exampleCheck1">login in</label>
+  </div>
+  <button type="submit" name="submit"class="btn btn-primary">Submit</button>
+</form>
+        
+        
+        
+        
+        
+        </section></section></section>
+  
+      
+ <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/js/bootstrap.bundle.min.js" integrity="sha384-b5kHyXgcpbZJO/tY9Ul7kGkf1S0CWuKcCD38l8YkeH8z8QjE0GmW1gYU5S9FOnJ0" crossorigin="anonymous"> <script src="https://code.jquery.com/jquery-2.1.3.min.js"></script>
+      <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/js/bootstrap.min.js"></script>
+</body>
+</html>
