@@ -7,7 +7,7 @@
     <style>
      .first
         {
-            display:grid;
+            Display:grid;
             grid-template-columns: 25%,70%;
         
             grid-column-gap: 5%;
